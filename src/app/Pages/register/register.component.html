@@ -1,0 +1,184 @@
+<div class="container-fluid">
+  <form
+  [formGroup]="forma"
+  (ngSubmit)="GuardarProducto(forma.value)"
+  class="form-horizontal"
+>
+  <fieldset>
+    <legend class="text-center h2">Registro</legend>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="inputEmail4">Id</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputEmail4"
+              placeholder="idpro"
+              name="idpro"
+              formControlName="id"
+            />
+          </div>
+          <div class="form-group col-md-10">
+            <label for="inputPassword4">Nombre del Producto</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputPassword4"
+              placeholder="Nombre del Producto"
+              name="descripcion"
+              formControlName="descripcion"
+            />
+            <div
+            *ngIf="
+              forma.controls['descripcion'].errors?.required &&
+              !forma.controls['descripcion'].untouched
+            "
+            class="form-control-feedback text-danger"
+          >
+            La Descripción requerido u Obligatorio.
+          </div>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="inputAddress">Caracteristicas</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="Caracteristicas"
+            name="caracteristicas"
+            formControlName="caracteristicas"
+          />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <label for="inputAddress2">Fecha de Lanzamiento</label>
+            <input
+              type="date"
+              class="form-control"
+              id="inputAddress2"
+              name="fechaLanz"
+              formControlName="fechaLanz"
+            />
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="inputAddress">Email del Fabricante</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputAddress"
+              placeholder="Email"
+              name="emailFab"
+              formControlName="emailFab"
+            />
+            <div
+            *ngIf="
+              forma.controls['emailFab'].errors?.required &&
+              !forma.controls['emailFab'].untouched
+            "
+            class="form-control-feedback text-danger"
+          >
+            El Email es Obligatorio.
+          </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Ciudad de Fabricación</label>
+            <select
+              id="inputCity"
+              class="form-control"
+              name="paisFab"
+              formControlName="paisFab"
+            >
+              <option *ngFor="let pais of paises"> {{ pais.name }}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputState">Precio</label>
+            <input
+              currencyMask
+              type="text"
+              class="form-control"
+              id="inputZip"
+              placeholder="$ 0.00"
+              name="precio"
+              formControlName="precio"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="unitesDisp">Unidades Disponibles</label>
+            <input
+              type="number"
+              class="form-control"
+              id="unitesDisp"
+              placeholder="Und. Disponibles"
+              name="uniDispon"
+              formControlName="uniDispon"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="unitSoldOut">Unidades Vendidas</label>
+            <input
+              type="number"
+              class="form-control"
+              id="unitSoldOut"
+              placeholder="Und. Vendidas"
+              name="unidVendidas"
+              formControlName="unidVendidas"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="imagen">Imagen del Producto</label>
+          <br />
+          <input class="file" type="file" id="imagen" />
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-3">
+            <button
+              type="submit"
+              class="btn btn btn-block btn-primary"
+              [disabled]="forma.invalid"
+            >
+              <i class="far fa-save"></i> &nbsp; Guardar
+            </button>
+          </div>
+          <div class="form-group col-sm-3">
+            <button
+              type="button"
+              routerLink="/home"
+              class="btn btn-block btn-danger"
+            >
+            <i class="fas fa-sign-out-alt"></i> &nbsp; Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <p-card class="tarjeta">
+          <p-header>
+              <img *ngIf="imagenTemp" [src]="imagenTemp" alt="Foto" class="mt-2 imagen" />
+              <img *ngIf="!imagenTemp" src="" alt="Foto" class="mt-2 imagen" />
+          </p-header>
+          <p-footer>
+
+          </p-footer>
+      </p-card>
+      </div>
+
+    </div>
+  </fieldset>
+</form>
+
+</div>

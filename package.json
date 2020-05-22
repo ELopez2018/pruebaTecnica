@@ -19,7 +19,12 @@
     "@angular/platform-browser": "~9.0.2",
     "@angular/platform-browser-dynamic": "~9.0.2",
     "@angular/router": "~9.0.2",
+    "animate.css": "^4.1.0",
+    "ng2-currency-mask": "^9.0.2",
+    "primeicons": "^3.0.0-rc.1",
+    "primeng": "^9.0.6",
     "rxjs": "~6.5.4",
+    "sweetalert2": "^9.13.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
